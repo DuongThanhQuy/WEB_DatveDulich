@@ -1,0 +1,114 @@
+﻿<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from kiswa.net/themes/star-travel/demo/demo-ltr/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Feb 2023 15:55:48 GMT -->
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="~/customerassets/~/customerassets/images/favicon.png" type="image/x-icon">
+    
+    <!-- Google Fonts -->	
+    <link href="~/customerassets/https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CMerriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    
+    <!-- Bootstrap Stylesheet -->	
+            <link rel="stylesheet" href="~/customerassets/css/bootstrap-4.4.1.min.css">
+    
+
+    <!-- Sidebar Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="~/customerassets/css/jquery.mCustomScrollbar.min.css">
+    
+    <!-- Font Awesome Stylesheet -->
+    <link rel="stylesheet" href="~/customerassets/css/font-awesome.min.css">
+        
+    <!-- Custom Stylesheets -->	
+    <link rel="stylesheet" href="~/customerassets/css/style.css">
+    <link rel="stylesheet" id="cpswitch" href="~/customerassets/css/orange.css">
+    <link rel="stylesheet" href="~/customerassets/css/responsive.css">
+
+    <!-- Owl Carousel Stylesheet -->
+    <link rel="stylesheet" href="~/customerassets/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/customerassets/css/owl.theme.css">
+    
+    <!-- Flex Slider Stylesheet -->
+    <link rel="stylesheet" href="~/customerassets/css/flexslider.css" type="text/css" />
+    
+    <!--Date-Picker Stylesheet-->
+    <link rel="stylesheet" href="~/customerassets/css/datepicker.css">
+    
+    <!-- Magnific Gallery -->
+    <link rel="stylesheet" href="~/customerassets/css/magnific-popup.css">
+</head>
+
+
+<body id="main-homepage">
+
+    <div class="wrapper">
+        <!--====== LOADER =====-->
+        <div class="loader"></div>
+              
+        
+        <!--============= TOP-BAR ===========-->
+        @await Html.PartialAsync("_TopBarPartialView.cshtml")
+        <!-- end TOP-BAR -->
+        @RenderBody()
+        
+        <!--======================= FOOTER =======================-->
+        @await Html.PartialAsync("_FooterPartialView.cshtml")
+        <!-- end footer -->
+        
+        
+        <div id="popup-ad" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+        
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="popup-ad-text">
+                                    <h4>Get</h4>
+                                    <h2><span>20%</span> off</h2>
+                                    <h4>on all flights booking</h4>
+                                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri.</p>
+                                    <a href="~/customerassets/#" class="btn btn-orange">Book Now</a>
+                                </div><!-- end popup-ad-text -->
+                            </div><!-- end columns -->
+                            
+                            <div class="col-12 col-md-6">
+                                <div class="popup-ad-img">
+                                    <img src="~/customerassets/images/about-content-2.png" class="img-fluid" /> 
+                                </div><!-- end popup-ad-img -->
+                            </div><!-- end columns -->
+                        </div><!-- end row -->
+                        
+                    </div><!-- end modal-bpdy -->
+                </div><!-- end modal-content -->
+            </div><!-- end modal-dialog -->
+        </div><!-- end popup-ad -->
+    </div>
+                        
+                        
+    <!-- Page Scripts Starts -->
+    <script src="~/customerassets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/customerassets/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/customerassets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/customerassets/js/bootstrap-4.4.1.min.js"></script>
+    <script src="~/customerassets/js/jquery.flexslider.js"></script>
+    <script src="~/customerassets/js/bootstrap-datepicker.js"></script>
+    <script src="~/customerassets/js/owl.carousel.min.js"></script>
+    <script src="~/customerassets/js/custom-navigation.js"></script>
+    <script src="~/customerassets/js/custom-flex.js"></script>
+    <script src="~/customerassets/js/custom-owl.js"></script>
+    <script src="~/customerassets/js/custom-date-picker.js"></script>
+    <script src="~/customerassets/js/custom-video.js"></script>
+    <script src="~/customerassets/js/popup-ad.js"></script>
+    <!-- Page Scripts Ends -->
+    @await Component.InvokeAsync("Notyf")
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+<!-- Mirrored from kiswa.net/themes/star-travel/demo/demo-ltr/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Feb 2023 15:56:52 GMT -->
+</html>

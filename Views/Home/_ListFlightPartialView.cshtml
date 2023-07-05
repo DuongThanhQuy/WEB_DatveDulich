@@ -1,0 +1,56 @@
+﻿@model List<DboFlight>
+@if (Model != null && Model.Count() > 0)
+{
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            string url = $"/{item.Alias}-{item.FlightId}.html";
+            <div class="col-md-6 col-lg-4">
+                <div class="main-block flight-block">
+                    <a href="@url">
+                        <div class="flight-img">
+                            <img src="~/customerassets/images/flight-1.jpg" class="img-fluid" alt="flight-img" />
+                        </div><!-- end flight-img -->
+
+                        <div class="flight-info">
+     
+                            <div class="flight-title">
+                                <h3>
+                                    <span class="flight-destination" style="font-size: 80%;">@item.From to @item.To</span> 
+                                    <br />
+                                    |<span class="flight-type">@Html.Raw(item.Tags.Replace(",", ",<br/>"))</span>
+                                </h3>
+                            </div><!-- end flight-title -->
+                            <div class=" flight-timing">
+                                <ul class="list-unstyled">
+                                    <li><span><i class="fa fa-plane"></i></span><span class="date">@item.DateCreated</span>(@item.MetaDesc)</li>
+                                    <li><span><i class="fa fa-plane"></i></span><span class="date">@item.DateModified</span>(@item.MetaKey)</li>
+                                </ul>
+                            </div><!-- end flight-timing -->
+
+                            <ul class="list-unstyled list-inline offer-price-1">
+                                <li class="list-inline-item price">@item.Price.Value.ToString("#,##0") VNĐ<span class="pkg">/Person</span></li>
+                                <li class="list-inline-item rating">
+                                    <span><i class="fa fa-star orange"></i></span>
+                                    <span><i class="fa fa-star orange"></i></span>
+                                    <span><i class="fa fa-star orange"></i></span>
+                                    <span><i class="fa fa-star orange"></i></span>
+                                    <span><i class="fa fa-star lightgrey"></i></span>
+                                </li>
+                            </ul>
+                        </div><!-- end flight-info -->
+                    </a>
+                </div><!-- end flight-block -->
+            </div>
+
+            <!-- end columns -->
+        }
+        
+
+    </div>
+
+    <!-- end row -->
+
+}
+

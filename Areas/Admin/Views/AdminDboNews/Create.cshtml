@@ -1,0 +1,164 @@
+﻿@model TravelFinalProject.Models.DboNews
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">New News</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-validation">
+                    <form asp-controller="AdminDboNews" asp-action="Create" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="Title" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Title" class="form-control" />
+                                        <span asp-validation-for="Title" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="Scontents" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Scontents" class="form-control" />
+                                        <span asp-validation-for="Scontents" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="Contents" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Contents" class="form-control" />
+                                        <span asp-validation-for="Contents" class="text-danger"></span>
+                                    </div>
+                                </div>
+                       
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="Alias" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Alias" class="form-control" />
+                                        <span asp-validation-for="Alias" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class ="col-lg-4 col-form-label" asp-for="Author" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Author" class="form-control" />
+                                        <span asp-validation-for="Author" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="AccountId" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="AccountId" class="form-control" />
+                                        <span asp-validation-for="AccountId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="CatId" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="CatId" class="form-control" />
+                                        <span asp-validation-for="CatId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="IsHot" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="IsHot" class="form-control" />
+                                        <span asp-validation-for="IsHot" class="text-danger"></span>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-xl-6">
+                                 
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="Tags" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Tags" class="form-control" />
+                                        <span asp-validation-for="Tags" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="CreatedDate" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="CreatedDate" class="form-control" />
+                                        <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="IsNewfeed" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="IsNewfeed" class="form-control" />
+                                        <span asp-validation-for="IsNewfeed" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="MetaDesc" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="MetaDesc" class="form-control" />
+                                        <span asp-validation-for="MetaDesc" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="MetaKey" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="MetaKey" class="form-control" />
+                                        <span asp-validation-for="MetaKey" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="Views" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Views" class="form-control" />
+                                        <span asp-validation-for="Views" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row" style="display:flex; flex-direction: row">
+
+                                    <label class="col-lg-4 col-form-label" asp-for="Picture" class="control-label"></label>
+                                    <div class=" col-lg-6 ">
+                                        <div class="form-file">
+                                            <input asp-for="Picture" type="file" class="form-file-input form-control">
+                                            <span asp-validation-for="Picture" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                               
+                                <div class="mb-3 row">
+                                    <label  class="col-lg-3 col-form-label">
+                                       @Html.DisplayNameFor(model => model.Published) * <input class="form-check-input" asp-for=" Published" />
+                                    </label>
+                                </div>
+
+                                <div class="d-md-flex m-b-15 align-items-center justify-content-center">
+                                    <div class="m-b-15">
+                                        <button class="btn btn-primary">
+                                            <i class="fa fa-check"></i>
+                                            <span class="btn-icon-end">Confirm Creation</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div>
+                    <a asp-action="Index">| Back to List |</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+</div>

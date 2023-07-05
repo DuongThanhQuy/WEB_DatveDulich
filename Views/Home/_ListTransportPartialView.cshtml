@@ -1,0 +1,59 @@
+﻿@model List<DboTransport>
+
+@if (Model != null && Model.Count() > 0)
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            string url = $"/{item.Alias}-{item.TransportId}.html";
+            <div class="col-md-6 col-lg-4">
+                <div class="main-block vehicle-block">
+                    <div class="main-img vehicle-img">
+                        <a href="@url">
+                            <img src="~/customerassets/images/vehicle-1.jpg" class="img-fluid" alt="tour-img" />
+                        </a>
+                        <div class="vehicle-time">
+                            <p><span><i class="fa fa-car"></i></span>@item.Amount</p>
+                        </div><!-- end vehicle-time -->
+                    </div><!-- end vehicle-img -->
+
+                    <div class="offer-price-2">
+                        <ul class="list-unstyled">
+                            <li class="price" style="text-align:center;">@item.Price.Value.ToString("#,##0") VNĐ<a href="@url"><span class="arrow"></span></a></li>
+                        </ul>
+                    </div><!-- end offer-price-2 -->
+
+                    <div class="main-info vehicle-info">
+                        <div class="main-title vehicle-title">
+                            <a href="@url">@item.TransportName</a>
+                            <p>@item.Title</p>
+                            <div class="rating">
+                                @if (item.Price >= 1000000)
+                                {
+                                    <span><i class="fa fa-star orange"></i></span>
+                                    <span><i class="fa fa-star orange"></i></span>
+                                    <span><i class="fa fa-star orange"></i></span>
+                                    <span><i class="fa fa-star orange"></i></span>
+                                    <span><i class="fa fa-star orange"></i></span>
+                                }
+                                else @if (item.Price < 1000000)
+                                {
+                                    <span><i class="fa fa-star orange"></i></span>
+                                    <span><i class="fa fa-star orange"></i></span>
+                                    <span><i class="fa fa-star orange"></i></span>
+                                    <span><i class="fa fa-star orange"></i></span>
+                                    <span><i class="fa fa-star lightgrey"></i></span>
+                                }
+                            </div>
+                        </div><!-- end vehicle-title -->
+                    </div><!-- end vehicle-info -->
+                </div><!-- end vehicle-block -->
+            </div>
+
+            <!-- end columns -->
+        }
+
+    </div>
+
+    <!-- end row -->
+}

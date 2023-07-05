@@ -1,0 +1,207 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<TravelFinalProject.Models.DboTransport>
+@{
+    int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Admin Transport Index" + CurrentPage;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+	<div class="container-fluid">
+		<div class="d-flex justify-content-between align-items-center flex-wrap">
+			<div class="card-action coin-tabs mb-2">
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" asp-area="Admin" asp-controler="AdminDboTransports" asp-action="Index">All Transport: page @CurrentPage</a>
+					</li>
+					
+				</ul>
+				
+			</div>
+			<div class="nav-item d-flex align-items-center">
+				<div class="input-group search-area">
+					<input id="keyword" name="keyword" type="text" class="form-control" placeholder="Search here">
+					<span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+				</div>
+			</div>
+			<div class="d-flex align-items-center mb-2 flex-wrap">
+				<div class="js-example-theme-single newest ms-3">
+					<select class="default-select" asp-items="ViewBag.CategoriesTras" id="txtCatTraID" name="txtCatTraID">
+						<option value="0" disabled selected>Choose Access</option>
+						<option value="all">All</option>
+					</select>
+
+				</div>
+				<div class="js-example-theme-single newest ms-3">
+					<a class="btn btn-secondary" asp-controller="AdminDboTransports" asp-action="Create"><span>+ New Transport</span></a>
+				</div>	
+			</div>
+		</div>
+		<div class="row mt-4">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body p-0">
+						<div class="tab-content">
+							<div class="tab-pane active show" id="AllGuest">
+								<div class="table-responsive">
+									<table class="table card-table display mb-4 shadow-hover default-table table-responsive-lg" id="guestTable-all">
+										<thead>
+											<tr>
+								
+												<th>Transport</th>
+												
+												<th>Description</th>
+												<th>Amount</th>
+												<th>Seats</th>
+												<th>Price</th>
+												<th>Discount</th>
+												<th>RentalInfo</th>
+												<th class="text-center">Status</th>
+												<th class="bg-none"></th>
+											</tr>
+										</thead>
+										<tbody id="records_table">
+											@if(Model != null)
+										{
+											foreach(var item in Model)
+											{
+												<tr>
+
+													<td>
+														<div class="concierge-bx d-flex align-items-center">
+															<img class="me-3 rounded" src="images/avatar/1.jpg" alt="">
+															<div>
+																<h5 class="fs-16 mb-0 text-nowrap"><a class="text-black" href="javascript:void(0);">@item.TransportName</a></h5>
+																<span class="text-primary fs-14">@item.TransportId</span>
+															</div>
+														</div>
+													</td>
+												
+													<td>
+														<span class="font-w500">@item.Description</span>
+													</td>
+													<td>
+														<span class="font-w500">@item.Amount</span>
+													</td>
+													<td>
+														<span class="font-w500">@item.Seats</span>
+													</td>
+													<td>
+														<span class="font-w500">@item.Price.Value.ToString("#,##0") VNĐ</span>
+													</td>
+													<td>
+														<span class="font-w500">@item.Discount</span>
+													</td>
+													<td>
+														<span class="font-w500">@item.RentalInfo</span>
+													</td>
+													<td>
+														@if (item.Amount != null && item.Amount > 0)
+													{
+														<div class="request">
+															<a href="javascript:void(0);" class="btn btn-md text-primary">Active</a>
+														</div>
+													}
+													else
+													{
+														<div class="request">
+															<a href="javascript:void(0);" class="btn btn-md text-primary">Booked</a>
+														</div>
+													}
+
+													</td>
+
+													<td class="py-2 text-end">
+														<div class="dropdown text-sans-serif"><button class="btn btn-primary tp-btn-light sharp" type="button" id="order-dropdown-0" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
+															<div class="dropdown-menu dropdown-menu-end border py-0" aria-labelledby="order-dropdown-0">
+
+																<a type="button" class="dropdown-item far fa-eye" asp-area="Admin" asp-controller="AdminDboTransports" asp-action="Details" asp-route-id="@item.TransportId"> View</a>
+																<a type="button" class="dropdown-item fas fa-edit" asp-area="Admin" asp-controller="AdminDboTransports" asp-action="Edit" asp-route-id="@item.TransportId"> Edit</a>
+																<a type="button" class="dropdown-item text-danger far fa-trash-alt" asp-area="Admin" asp-controller="AdminDboTransports" asp-action="Delete" asp-route-id="@item.TransportId"> Delete</a>
+															</div>
+														</div>
+													</td>
+												</tr>
+											}
+										}
+											
+										
+										</tbody>
+									</table>
+
+								</div>
+
+							</div>
+							<div aria-label="Page navigation example">
+
+								<ul class="pagination pagination-gutter pagination-primary no-bg">
+									<li class="page-item page-indicator">
+										<a class="page-link" href="javascript:void(0)">
+											<i class="la la-angle-left"></i>
+										</a>
+									</li>
+									<li class="pager-item page-indicator">
+										<pager href="javascript:void(0)" list="@Model" asp-area="Admin" asp-controller="AdminDboCustomers" asp-route-CatTraID="@ViewBag.CurrentCateTraID" asp-action="Index" />
+									</li>
+									<li class="page-item page-indicator">
+										<a class="page-link" href="javascript:void(0)">
+											<i class="la la-angle-right"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	@section Scripts{
+	<script>
+    $(document).ready(function () {
+        jQuery("#txtCatTraID").change(function () {
+            var catTraID = jQuery(this).children(":selected").attr("value");
+            catTraID = parseFloat(catTraID);
+            $('#txtCatTraID option')
+                .removeAttr('selected');
+            $("#txtCatTraID > [value=" + catTraID + "]").attr("selected", "true");
+            $.ajax({
+					url: '/Admin/AdminDboTransports/Filtter',
+                datatype: "json",
+                type: "GET",
+                data: {
+                    CatTraID: catTraID
+                },
+                async: true,
+                success: function (results) {
+                    if (results.status == "success") {
+                        window.location.href = results.redirectUrl;
+                    }
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+        });
+
+        $("#keyword").keyup(function () {
+            var strkeyword = $('#keyword').val();
+            $.ajax({
+                url: '/Admin/Search/FindTransport/',
+                datatype: "json",
+                type: "POST",
+                data: { keyword: strkeyword },
+                async: true,
+                success: function (results) {
+                    $("#records_table").html("");
+                    $("#records_table").html(results);
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+        });
+    });
+	</script>
+}
+<!--**********************************
+	Content body end
+***********************************-->

@@ -1,0 +1,44 @@
+﻿@model TravelFinalProject.Models.DboRole
+
+@{
+	ViewData["Title"] = "Confirm to remove access";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+	<div class="card-header d-block">
+		<h5 class="card-title">Confirm To Remove Access</h5>
+		<h1>@Model.RoleName</h1>
+	</div>
+	<div class="card-body">
+		<!-- Default accordion -->
+
+		<div class="accordion accordion-primary" id="accordion-one">
+
+			<div class="accordion-item">
+				<div class="accordion-header collapsed rounded-lg" id="headingTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo" role="button" aria-expanded="true">
+					<span class="accordion-header-text">Job Description Of: @Model.RoleName</span>
+					<span class="accordion-header-indicator"></span>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion-one">
+					<div class="accordion-body-text">@Model.Description</div>
+				</div>
+				
+			</div>
+			<div>
+			
+				<form asp-action="Delete" asp-rou-id="@Model.RoleId">
+					<input type="hidden" asp-for="RoleId" />
+					<input type="submit" value="Delete" class="btn btn-danger" /> |
+					<a asp-action="Index">Back to List</a>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	
+
+</div>
+    
+    
+

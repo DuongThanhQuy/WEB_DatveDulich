@@ -1,0 +1,250 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<TravelFinalProject.Models.DboNews>
+
+@{
+    ViewData["Title"] = "Blog Index / " + ViewBag.CurrentPage;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int PageCurrent = ViewBag.CurrentPage;
+    int PageNext = PageCurrent + 1;
+
+}
+
+<!--================= PAGE-COVER ================-->
+<section class="page-cover" id="cover-blog-listing">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title">Share Interesting Travels</h1>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item">Travel Blog</li>
+                </ul>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end page-cover -->
+<!--==== INNERPAGE-WRAPPER =====-->
+<section class="innerpage-wrapper">
+    <div id="blog-listings" class="innerpage-section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12 col-md-12 col-lg-3 col-xl-3 side-bar blog-sidebar left-side-bar">
+                    <div class="row">
+
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block main-block ad-block">
+                                <div class="main-img ad-img">
+                                    <a href="#">
+                                        <img src="~/customerassets/images/car-ad.jpg" class="img-fluid" alt="car-ad" />
+                                        <div class="ad-mask">
+                                            <div class="ad-text">
+                                                <span>Luxury</span>
+                                                <h2>Car</h2>
+                                                <span>Offer</span>
+                                            </div><!-- end ad-text -->
+                                        </div><!-- end columns -->
+                                    </a>
+                                </div><!-- end ad-img -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block instagram">
+                                <h2 class="side-bar-heading">Instagram</h2>
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-1.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-2.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-3.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-4.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-5.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-6.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-7.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-8.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-9.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                </ul>
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+                    </div><!-- end row -->
+
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block contact">
+                                <h2 class="side-bar-heading">Contact Us</h2>
+                                <div class="c-list">
+                                    <div class="icon"><span><i class="fa fa-envelope"></i></span></div>
+                                    <div class="text"><p>support@star-hotel.com</p></div>
+                                </div><!-- end c-list -->
+
+                                <div class="c-list">
+                                    <div class="icon"><span><i class="fa fa-phone"></i></span></div>
+                                    <div class="text"><p>+222 – 5548 656</p></div>
+                                </div><!-- end c-list -->
+
+                                <div class="c-list">
+                                    <div class="icon"><span><i class="fa fa-map-marker"></i></span></div>
+                                    <div class="text"><p>Street No: 1017 Le Van Luong, Phuoc Kien, Nha Be, HCM</p></div>
+                                </div><!-- end c-list -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                       
+                    </div><!-- end row -->
+
+                    <div class="row">
+
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block follow-us">
+                                <h2 class="side-bar-heading">Follow Us</h2>
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item"><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
+                                    <li class="list-inline-item"><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
+                                    <li class="list-inline-item"><a href="#"><span><i class="fa fa-linkedin"></i></span></a></li>
+                                    <li class="list-inline-item"><a href="#"><span><i class="fa fa-google-plus"></i></span></a></li>
+                                    <li class="list-inline-item"><a href="#"><span><i class="fa fa-pinterest-p"></i></span></a></li>
+                                </ul>
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block tags">
+                                <h2 class="side-bar-heading">Tags</h2>
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">SPA</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Restaurant</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Searvices</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Wifi</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Tv</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Rooms</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Pools</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Work</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Sports</a></li>
+                                </ul>
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                    </div><!-- end row -->
+                </div><!-- end columns -->
+
+                <div class="col-12 col-md-12 col-lg-9 col-xl-9 content-side">
+                    <div class="space-right">
+                         @if (Model != null && Model.Count() > 0)
+                        {
+                            
+                            foreach (var item in Model)
+                            {
+                                string url = $"/blogs-detail/{item.Alias}-{item.PostId}.html";
+                                <div class="main-block blog-post blog-list">
+                                    <div class="main-img blog-post-img">
+                                        <a href="@url">
+                                            <img src="~/customerassets/images/blog-listing-1.jpg" class="img-fluid" alt="@item.Title" />
+                                        </a>
+                                        <div class="main-mask blog-post-info">
+                                            <ul class="list-inline list-unstyled blog-post-info">
+                                                <li class="list-inline-item"><span><i class="fa fa-calendar"></i></span>@item.CreatedDate.Value.ToShortDateString()</li>
+                                                <li class="list-inline-item"><span><i class="fa fa-user"></i></span>By: <a href="@url">@item.Author</a></li>
+                                            </ul>
+                                        </div>
+                                    </div><!-- end blog-post-img -->
+
+                                    <div class="blog-post-detail">
+                                        <h2 class="blog-post-title"><a href="@url">@item.Title</a></h2>
+                                        <p>@item.Contents</p>
+                                        <a href="@url" class="btn btn-orange">View More</a>
+                                    </div><!-- end blog-post-detail -->
+                                </div><!-- end blog-post -->
+                            }
+                        }
+                        <div class="pages">
+                            <ol class="pagination justify-content-center">
+                                @if (PageCurrent > 1)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="/blogs.html?page=@(PageCurrent - 1)" aria-label="Previous">
+                                            <span class="fa fa-chevron-left"></span>
+                                        </a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="/blogs.html" aria-label="Previous">
+                                            <span class="fa fa-chevron-left"></span>
+                                        </a>
+                                    </li>
+                                }
+
+                                <li class="page-item active"><a class="page-link" href="/blogs.html?page=@PageCurrent">@PageCurrent</a></li>
+                                <li class="page-item"><a class="page-link" href="/blogs.html?page=@PageNext">@PageNext</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="/blogs.html?page=@PageNext" aria-label="Next">
+                                        <span class="fa fa-chevron-right"></span>
+                                    </a>
+                                </li>
+                            </ol>
+                        </div><!-- end pages -->
+
+                    </div><!-- end space-right -->
+                </div><!-- end columns -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end blog-listings -->
+</section><!-- end innerpage-wrapper -->
+<!--======================= BEST FEATURES =====================-->
+<section id="best-features" class="banner-padding black-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="b-feature-block">
+                    <span><i class="fa fa-dollar"></i></span>
+                    <h3>Best Price Guarantee</h3>
+                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
+                </div><!-- end b-feature-block -->
+            </div><!-- end columns -->
+
+            <div class="col-md-6 col-lg-3">
+                <div class="b-feature-block">
+                    <span><i class="fa fa-lock"></i></span>
+                    <h3>Safe and Secure</h3>
+                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
+                </div><!-- end b-feature-block -->
+            </div><!-- end columns -->
+
+            <div class="col-md-6 col-lg-3">
+                <div class="b-feature-block">
+                    <span><i class="fa fa-thumbs-up"></i></span>
+                    <h3>Best Travel Agents</h3>
+                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
+                </div><!-- end b-feature-block -->
+            </div><!-- end columns -->
+
+            <div class="col-md-6 col-lg-3">
+                <div class="b-feature-block">
+                    <span><i class="fa fa-bars"></i></span>
+                    <h3>Travel Guidelines</h3>
+                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
+                </div><!-- end b-feature-block -->
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end best-features -->
+<!--========================= NEWSLETTER-1 ==========================-->
+<section id="newsletter-1" class="section-padding back-size newsletter">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 text-center">
+                <h2>Subscribe Our Newsletter</h2>
+                <p>Subscibe to receive our interesting updates</p>
+                <form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="email" class="form-control input-lg" placeholder="Enter your email address" required />
+                            <span class="input-group-btn"><button class="btn btn-lg"><i class="fa fa-envelope"></i></button></span>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end newsletter-1 -->

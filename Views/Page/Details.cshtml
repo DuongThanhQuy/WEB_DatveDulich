@@ -1,0 +1,191 @@
+﻿@model TravelFinalProject.Models.DboPage
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string url = $"/{Model.Alias}";
+}
+
+<!--============= PAGE-COVER =============-->
+<section class="page-cover" id="cover-byf-info">
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <h1 class="page-title">Share Tips</h1>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item">@Model.PageName</li>
+                </ul>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end page-cover -->
+<!--==== INNERPAGE-WRAPPER =====-->
+<section class="innerpage-wrapper">
+    <div id="byf-guidelines" class="innerpage-section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12 col-lg-9 content-side byf-info">
+                    <div class="space-right">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item active">
+                                <a href="#content1" class="nav-link" data-toggle="tab"><span><i class="fa fa-building"></i></span>@Model.Title</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#content2" class="nav-link" data-toggle="tab"><span><i class="fa fa-ticket"></i></span>@Model.Title2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#content3 class="nav-link" data-toggle="tab"><span><i class="fa fa-check"></i></span>@Model.Title3</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#content4" class="nav-link" data-toggle="tab"><span><i class="fa fa-suitcase"></i></span>@Model.Title4</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+
+                            <div id="content1" class="tab-pane active">
+                                <div class="byf-info-wrap">
+                                    <img src="~/customerassets/images/byf-airport-info.jpg" class="img-fluid" alt="byf-info-img">
+                                    <h3 class="byf-info-heading">@Model.Title</h3>
+                                    <p>@Model.Contents</p>
+                                        
+                                </div><!-- end byf-info-wrap -->
+
+                               
+                            </div><!-- end airport-info -->
+
+                            <div id="content2" class="tab-pane">
+                                <div class="byf-info-wrap">
+                                    <img src="~/customerassets/images/byf-visa-passport.jpg" class="img-fluid" alt="byf-info-img">
+                                    <h3 class="byf-info-heading">@Model.Title2</h3>
+                                    <p>@Model.Content2</p>
+                                </div><!-- end byf-info-wrap -->
+
+                                
+                            </div><!-- end visa-passport -->
+
+                            <div id="content3" class="tab-pane">
+                                <div class="byf-info-wrap">
+                                    <img src="~/customerassets/images/byf-check-in.jpg" class="img-fluid" alt="byf-info-img">
+                                    <h3 class="byf-info-heading">@Model.Title3</h3>
+                                    <p>@Model.Content3</p>
+                                    
+                                </div><!-- end byf-info-wrap -->
+
+                                
+                            </div><!-- end check-in -->
+
+                            <div id="content4" class="tab-pane">
+                                <div class="byf-info-wrap">
+                                    <img src="~/customerassets/images/byf-baggage-info.jpg" class="img-fluid" alt="byf-info-img">
+                                    <h3 class="byf-info-heading">@Model.Title4</h3>
+                                    <p>@Model.Content4</p>
+                                </div><!-- end byf-info-wrap -->
+
+                            </div><!-- end baggage-info -->
+
+                        </div><!-- end tab-content -->
+                    </div><!-- end space-right -->
+                </div><!-- end columns -->
+
+                <div class="col-12 col-lg-3 side-bar blog-sidebar right-side-bar">
+
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block categories">
+                                <h2 class="side-bar-heading">Useful Links</h2>
+                                <ul class="nav nav-pills">
+                                    <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Flight Stat</a></li>
+                                    <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Baggage Check-In</a></li>
+                                    <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Travel Policy</a></li>
+                                    <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Drink & Meal</a></li>
+                                    <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Pet Allowance</a></li>
+                                    <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Child Booking</a></li>
+                                </ul>
+                            </div><!-- end side-bar-block -->
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block recent-post">
+                                <h2 class="side-bar-heading">Holiday Deals</h2>
+
+                                <div class="recent-block">
+                                    <div class="recent-img">
+                                        <a href="blog-detail-left-sidebar.html"><img src="~/customerassets/images/holiday-deal-1.jpg" class="img-fluid" alt="holiday-deal-image" /></a>
+                                    </div><!-- end recent-img -->
+
+                                    <div class="recent-text">
+                                        <a href="blog-detail-left-sidebar.html"><h5>Jakarta Holidays</h5></a>
+                                        <span class="date">$200 Per Person</span>
+                                    </div><!-- end recent-text -->
+                                </div><!-- end recent-block -->
+
+                                <div class="recent-block">
+                                    <div class="recent-img">
+                                        <a href="blog-detail-left-sidebar.html"><img src="~/customerassets/images/holiday-deal-2.jpg" class="img-fluid" alt="holiday-deal-image" /></a>
+                                    </div><!-- end recent-img -->
+
+                                    <div class="recent-text">
+                                        <a href="blog-detail-left-sidebar.html"><h5>Prague Holidays</h5></a>
+                                        <span class="date">$343 Per Person</span>
+                                    </div><!-- end recent-text -->
+                                </div><!-- end recent-block -->
+
+                                <div class="recent-block">
+                                    <div class="recent-img">
+                                        <a href="blog-detail-left-sidebar.html"><img src="~/customerassets/images/holiday-deal-3.jpg" class="img-fluid" alt="holiday-deal-image" /></a>
+                                    </div><!-- end recent-img -->
+
+                                    <div class="recent-text">
+                                        <a href="blog-detail-left-sidebar.html"><h5>Africa Holidays</h5></a>
+                                        <span class="date">$150 Per Person</span>
+                                    </div><!-- end recent-text -->
+                                </div><!-- end recent-block -->
+
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+                    </div><!-- end row -->
+
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block contact">
+                                <h2 class="side-bar-heading">Contact Us</h2>
+                                <div class="c-list">
+                                    <div class="icon"><span><i class="fa fa-envelope"></i></span></div>
+                                    <div class="text"><p>support@star-hotel.com</p></div>
+                                </div><!-- end c-list -->
+
+                                <div class="c-list">
+                                    <div class="icon"><span><i class="fa fa-phone"></i></span></div>
+                                    <div class="text"><p>+222 – 5548 656</p></div>
+                                </div><!-- end c-list -->
+
+                                <div class="c-list">
+                                    <div class="icon"><span><i class="fa fa-map-marker"></i></span></div>
+                                    <div class="text"><p>Street No: 1234/A, Blu Vard Area, Main Double Road, UK</p></div>
+                                </div><!-- end c-list -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block follow-us">
+                                <h2 class="side-bar-heading">Follow Us</h2>
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item mx-2"><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
+                                    <li class="list-inline-item mx-2"><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
+                                    <li class="list-inline-item mx-2"><a href="#"><span><i class="fa fa-linkedin"></i></span></a></li>
+                                    <li class="list-inline-item mx-2"><a href="#"><span><i class="fa fa-google-plus"></i></span></a></li>
+                                    <li class="list-inline-item mx-2"><a href="#"><span><i class="fa fa-pinterest-p"></i></span></a></li>
+                                </ul>
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                    </div><!-- end row -->
+                </div><!-- end columns -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end byf-guidelines -->
+</section><!-- end innerpage-wrapper -->

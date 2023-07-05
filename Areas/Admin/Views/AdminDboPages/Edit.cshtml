@@ -1,0 +1,176 @@
+﻿@model TravelFinalProject.Models.DboPage
+
+@{
+    ViewData["Title"] = "Edit Page" + Model.PageName;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Edit Page: @Model.PageName</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-validation">
+                    <form asp-controller="AdminDboPages" asp-action="Edit" asp-route-id="@Model.PageId" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="PageId" />
+                        <input type="hidden" asp-for="Picture" />
+                        
+                            <div class="col-xl-6">
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="PageName" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="PageName" class="form-control" />
+                                        <span asp-validation-for="PageName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                
+                               
+
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="Published" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Published" class="form-control" />
+                                        <span asp-validation-for="Published" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="Title" class="control-label"></label>                                   
+                                    <div class="col-lg-6">
+                                        <input asp-for="Title" class="form-control" />
+                                        <span asp-validation-for="Title" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                 <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="Title2" class="control-label"></label>                                   
+                                    <div class="col-lg-6">
+                                        <input asp-for="Title2" class="form-control" />
+                                        <span asp-validation-for="Title2" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                 <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="Title3" class="control-label"></label>                                   
+                                    <div class="col-lg-6">
+                                        <input asp-for="Title3" class="form-control" />
+                                        <span asp-validation-for="Title3" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            <div class="mb-3 row">
+                                <label class="col-lg-4 col-form-label" asp-for="Title4" class="control-label"></label>
+                                <div class="col-lg-6">
+                                    <input asp-for="Title4" class="form-control" />
+                                    <span asp-validation-for="Title4" class="text-danger"></span>
+                                </div>
+                            </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="Ordering" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Ordering" class="form-control" />
+                                        <span asp-validation-for="Ordering" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                 
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="MetaDesc" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="MetaDesc" class="form-control" />
+                                        <span asp-validation-for="MetaDesc" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="MetaKey" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="MetaKey" class="form-control" />
+                                        <span asp-validation-for="MetaKey" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="Alias" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Alias" class="form-control" />
+                                        <span asp-validation-for="Alias" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" asp-for="CreateDate" class="control-label"></label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="CreateDate" class="form-control" />
+                                        <span asp-validation-for="CreateDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3 row" style="display:flex; flex-direction: row">
+
+                                    <label class="col-lg-4 col-form-label" asp-for="Picture" class="control-label"></label>
+                                    <div class=" col-lg-6 ">
+                                        <div class="form-file">
+                                            <input asp-for="Picture" type="file" class="form-file-input form-control">
+                                            <span asp-validation-for="Picture" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                               
+                            </div>
+                            <div class="mb-3 row">
+                                <label class="col-lg-12 col-form-label" asp-for="Contents" class="control-label"></label>
+                                <div class="col-lg-12">
+                                    <textarea asp-for="Contents" class="form-control" id="comment"></textarea>
+                                    <span asp-validation-for="Contents" class="text-danger"></span>
+                                </div>
+                            </div>
+                        <div class="mb-3 row">
+                            <label class="col-lg-12 col-form-label" asp-for="Content2" class="control-label"></label>
+                            <div class="col-lg-12">
+                                <textarea asp-for="Content2" class="form-control" id="comment"></textarea>
+                                <span asp-validation-for="Content2" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                                <label class="col-lg-12 col-form-label" asp-for="Content3" class="control-label"></label>
+                                <div class="col-lg-12">
+                                    <textarea asp-for="Content3" class="form-control" id="comment"></textarea>
+                                    <span asp-validation-for="Content3" class="text-danger"></span>
+                                </div>
+                            </div>
+                        <div class="mb-3 row">
+                            <label class="col-lg-12 col-form-label" asp-for="Content4" class="control-label"></label>
+                            <div class="col-lg-12">
+                                <textarea asp-for="Content4" class="form-control" id="comment"></textarea>
+                                <span asp-validation-for="Content4" class="text-danger"></span>
+                            </div>
+                        </div>
+                            <div class="d-md-flex m-b-15 align-items-center justify-content-center">
+                                <div class="m-b-15">
+                                    <button class="btn btn-primary">
+                                        <i class="fa fa-save"></i>
+                                        <span class="btn-icon-end">Save Changes</span>
+                                    </button>
+                                </div>
+                            </div>
+                       
+                        
+                    </form>
+
+                    
+
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                     <div class="ms-auto">
+                          <a asp-action="Index">| Back to List |</a>
+                     </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

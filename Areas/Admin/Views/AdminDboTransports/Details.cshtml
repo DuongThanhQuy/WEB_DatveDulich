@@ -1,0 +1,124 @@
+﻿@model TravelFinalProject.Models.DboTransport
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row page-titles">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Layout</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Blank</a></li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6  col-md-6 col-xxl-5 ">
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade show active" id="first">
+                                    <img class="img-fluid" src="~/customerassets/images/" alt="@Model.Title" />
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="second">
+                                    <img class="img-fluid" src="~/pictures/products/@Model.Picture" alt="@Model.Title" />
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="third">
+                                    <img class="img-fluid" src="~/pictures/products/@Model.Picture" alt="@Model.Title" />
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="for">
+                                    <img class="img-fluid" src="~/pictures/products/@Model.Picture" alt="@Model.Title" />
+                                </div>
+                            </div>
+                            <div class="tab-slide-content new-arrival-product mb-4 mb-xl-0">
+                                <!-- Nav tabs -->
+                                <ul class="nav slide-item-list mt-3" role="tablist">
+                                    <li role="presentation" class="show">
+                                        <a href="#first" role="tab" data-bs-toggle="tab">
+                                            <img class="img-fluid" src="~/images/products/@Model.Picture" alt="@Model.Title" width="50">
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#second" role="tab" data-bs-toggle="tab"><img class="img-fluid" src="~/images/products/@Model.Picture" alt="@Model.Title" width="50"></a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#second" role="tab" data-bs-toggle="tab"><img class="img-fluid" src="~/images/products/@Model.Picture" alt="@Model.Title" width="50"></a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#second" role="tab" data-bs-toggle="tab"><img class="img-fluid" src="~/images/products/@Model.Picture" alt="@Model.Title" width="50"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--Tab slider End-->
+                        <div class="col-xl-9 col-lg-6  col-md-6 col-xxl-7 col-sm-12">
+                            <div class="product-detail-content">
+                                <!--Product details-->
+                                <div class="new-arrival-content pr">
+                                    <h4>@Model.TransportName</h4>
+                                    <div class="comment-review star-rating">
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+
+                                        </ul>
+                                        <span class="review-text">(34 reviews) / </span>
+                                    <div class="d-table mb-2">
+                                            <p class="price float-start d-block">Price: @Model.Price</p> Discount to @Model.Discount
+                                    </div>
+                                        
+                                    <p>
+                                        Availability: <span class="item">
+                                            @Model.Active <i class="fa fa-shopping-basket"></i>
+                                        </span>
+                                    </p>
+                                    <p>
+                                        BestSellers: <span class="item">
+                                            @Model.BestSellers <i class=""></i>
+                                        </span>
+                                    </p>
+                                        <p>
+                                            HomeFlag: <span class="item">
+                                                @Model.HomeFlag <i class=""></i>
+                                            </span>
+                                        </p>
+                                    <p>Cat transport: <span class="item">@Model.CatTra.CatTraName</span> </p>
+                                    <p>Product code: <span class="item">@Model.TransportId</span> </p>
+                                    <p>UnitslnStock: <span class="item">@Model.UnitslnStock</span> </p>
+                                    <p>Seats: <span class="item">@Model.Seats</span></p>
+                                    <p>
+                                        Product tags:&nbsp;&nbsp;
+                                        <span class="badge badge-success light">@Model.Tags</span>
+                                 
+                                    </p>
+                                    <p class="text-content">
+                                        @Model.Description
+                                    </p>
+                                    <p>Date Created: <span class="item">@Model.DateCreated</span> </p>
+                                    <p>Date Modified: <span class="item">@Model.DateModified</span> </p>
+                                    <p>MetaDesc: <span class="item">@Model.MetaDesc</span> </p>
+                                    <p>MetaKey: <span class="item">@Model.MetaKey</span> </p>
+                                    <p>Alias: <span class="item">@Model.Alias</span> </p>
+                                    
+                                     
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.TransportId">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>

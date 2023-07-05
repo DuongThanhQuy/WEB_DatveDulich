@@ -1,0 +1,137 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<TravelFinalProject.Models.DboCustomer>
+
+@{
+	int CurrentPage = ViewBag.CurrentPage;
+	ViewData["Title"] = "Admin Customer Index" + CurrentPage;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!--**********************************
+			Content body start
+		***********************************-->
+	<!-- row -->
+	<div class="container-fluid">
+		<div class="d-flex justify-content-between align-items-center flex-wrap">
+			<div class="card-action coin-tabs mb-3">	
+				
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" asp-area="Admin" asp-controler="Home" asp-action="Index">All Account: page @CurrentPage</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" asp-area="Admin" asp-controler="Home" asp-action="Index">Active Account</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" asp-area="Admin" asp-controler="Home" asp-action="Index">Inactive Account</a>
+					</li>
+				</ul>
+
+			</div>
+			
+			
+		</div>
+		<div class="row mt-4">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body p-0">
+						<div class="tab-content">
+							<div class="tab-pane active show" id="AllGuest">
+								<div class="table-responsive">
+									<table class="table card-table display mb-4 shadow-hover default-table table-responsive-lg" id="guestTable-all">
+										<thead>
+											<tr>
+												<th>Guest</th>
+												<th>Phone</th>
+												<th>Email</th>
+												<th>Address</th>
+												<th>Create Date</th>
+												<th>Country</th>
+												<th class="text-center">Status</th>
+												<th class="bg-none"></th>
+											</tr>
+										</thead>
+										<tbody>
+										@if(Model != null)
+										{
+											foreach(var item in Model)
+											{
+												<tr>
+												
+													<td>
+														<div class="concierge-bx d-flex align-items-center">
+															<img class="me-3 rounded" src="images/avatar/1.jpg" alt="">
+															<div>
+																<h5 class="fs-16 mb-0 text-nowrap"><a class="text-black" href="javascript:void(0);">@item.FullName</a></h5>
+																<span class="text-primary fs-14">@item.CustomerId</span>
+															</div>
+														</div>
+													</td>
+													<td>
+														<div>
+															<span class="font-w600 text-nowrap"><i class="fas fa-phone-alt me-2 "></i>@item.Phone</span>
+														</div>
+													</td>
+													<td class="text-nowrap">
+														<span>@item.Email</span>
+													</td>
+													<td class="text-nowrap">
+														<span>@item.Address</span>
+													</td>
+													<td>
+														<div>
+															<h5 class="text-nowrap">@item.CreateDate</h5>
+														</div>
+													</td>
+													<td class="text-nowrap">
+														<span>@item.Location.Name</span>
+													</td>
+									
+													<td>
+														<div class="request">
+															<a href="javascript:void(0);" class="btn btn-md text-primary">@item.Active</a>
+														</div>
+													</td>
+													<td>
+														<a type="button" class="btn btn-warning" asp-area="Admin" asp-controller="AdminDboCustomers" asp-action="Details" asp-route-id="@item.CustomerId">View</a>
+														<a type="button" class="btn btn-secondary" asp-area="Admin" asp-controller="AdminDboCustomers" asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a>
+														<a type="button" class="btn btn-info" asp-area="Admin" asp-controller="AdminDboCustomers" asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
+													</td>
+												</tr>
+											}
+										}
+										
+										</tbody>
+									</table>
+
+									<div aria-label="Page navigation example">
+												
+										<ul class="pagination pagination-gutter pagination-primary no-bg">
+											<li class="page-item page-indicator">
+												<a class="page-link" href="javascript:void(0)">
+													<i class="la la-angle-left"></i>
+												</a>
+											</li>
+										<li class="pager-item page-indicator">
+												<pager href="javascript:void(0)" list="@Model" asp-area="Admin" asp-controller="AdminDboCustomers" asp-action="Index" />
+											</li>
+											<li class="page-item page-indicator">
+												<a class="page-link" href="javascript:void(0)">
+													<i class="la la-angle-right"></i>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+<!--**********************************
+	Content body end
+***********************************-->

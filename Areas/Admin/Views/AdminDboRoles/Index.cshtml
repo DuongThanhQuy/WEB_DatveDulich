@@ -1,0 +1,59 @@
+﻿
+@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<TravelFinalProject.Models.DboRole>
+@{
+    ViewData["Title"] = "Roles Management";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+		<div class="card-action coin-tabs mb-3">
+
+			<ul class="nav nav-tabs" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" asp-area="Admin" asp-controler="Home" asp-action="Index">All Roles: page @ViewBag.CurrentPage</a>
+				</li>
+			
+			</ul>
+
+		</div>
+		<div class="d-flex align-items-center mb-2 flex-wrap">
+			
+			<div class="js-example-theme-single newest ms-3">
+				<a class="btn btn-secondary" asp-controller="AdminDboRoles" asp-action="Create"><span>+ New Role</span></a>
+			</div>
+		</div>
+
+	</div>
+    <div class="table-responsive">
+    <table class="table table-responsive-md">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col"> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach(var item in Model)
+                    {
+                        <tr>
+                            <th>@item.RoleId</th>
+                            <td>@item.RoleName</td>
+                            <td>@item.Description</td>
+                            <td>
+                            <a type="button" class="btn btn-warning" asp-area="Admin" asp-controller="AdminDboRoles" asp-action="Details" asp-route-id="@item.RoleId">View</a>
+                            <a type="button" class="btn btn-secondary" asp-area="Admin" asp-controller="AdminDboRoles" asp-action="Edit" asp-route-id="@item.RoleId">Edit</a>
+                            <a type="button" class="btn btn-info" asp-area="Admin" asp-controller="AdminDboRoles" asp-action="Delete" asp-route-id="@item.RoleId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+           
+                
+            </tbody>
+        </table>
+    </div>
+

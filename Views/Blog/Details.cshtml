@@ -1,0 +1,309 @@
+﻿@model TravelFinalProject.Models.DboNews
+
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string url = $"/blogs-detail/{Model.Alias}-{Model.PostId}.html";
+    List<DboNews> RecentPost = ViewBag.RecentPost;
+}
+
+<!--============= PAGE-COVER =============-->
+<section class="page-cover" id="cover-blog-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1 class="page-title">@Model.Title</h1>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item">@Model.Title</li>
+                </ul>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end page-cover -->
+<!--==== INNERPAGE-WRAPPER =====-->
+<section class="innerpage-wrapper">
+    <div id="blog-details" class="innerpage-section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-9 col-xl-9 content-side">
+                    <div class="space-right">
+
+                        <div class="blog-post">
+                            <div class="main-img blog-post-img">
+                                <img src="~/customerassets/images/blog-listing-1.jpg" class="img-fluid" alt="blog-post-image" />
+                                <div class="main-mask blog-post-info">
+                                    <ul class="list-inline list-unstyled blog-post-info">
+                                        <li class="list-inline-item list-inline-item"><span><i class="fa fa-calendar"></i></span>@Model.CreatedDate</li>
+                                        <li class="list-inline-item list-inline-item"><span><i class="fa fa-user"></i></span>By: <a href="#">@Model.Author</a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- end blog-post-img -->
+
+                            <div class="blog-post-detail">
+                                <h2 class="blog-post-title">@Model.Title</h2>
+                                @Html.Raw(Model.Scontents)
+                                <hr />
+                                <p>@Model.Contents</p>
+                                
+                            </div><!-- end blog-post-detail -->
+                        </div><!-- end blog-post -->
+
+                        <div id="comments">
+
+                            <div class="comment-block">
+                                <div class="user-img">
+                                    <img src="~/customerassets/images/commenter-1.jpg" class="img-fluid" alt="user-img" />
+                                </div><!-- end user-img -->
+
+                                <div class="user-text">
+                                    <ul class="list-inline list-unstyled">
+                                        <li class="list-inline-item user-name">Jhon Smith</li>
+                                        <li class="list-inline-item date">27 May, 2017</li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
+                                    <a href="#"><span><i class="fa fa-reply"></i></span> Reply</a>
+                                </div><!-- end user-text -->
+
+                                <div class="comment-block reply-block">
+                                    <div class="user-img">
+                                        <img src="~/customerassets/images/commenter-2.jpg" class="img-fluid" alt="user-img" />
+                                    </div><!-- end user-img -->
+
+                                    <div class="user-text">
+                                        <ul class="list-inline list-unstyled">
+                                            <li class="list-inline-item user-name">Jhon Smith</li>
+                                            <li class="list-inline-item date">27 May, 2017</li>
+                                        </ul>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
+                                        <a href="#"><span><i class="fa fa-reply"></i></span> Reply</a>
+                                    </div><!-- end user-text -->
+                                </div><!-- end reply-block -->
+                            </div><!-- end comment-block -->
+
+                            <div class="comment-block">
+                                <div class="user-img">
+                                    <img src="~/customerassets/images/commenter-3.jpg" class="img-fluid" alt="user-img" />
+                                </div><!-- end user-img -->
+
+                                <div class="user-text">
+                                    <ul class="list-inline list-unstyled">
+                                        <li class="list-inline-item user-name">Jhon Smith</li>
+                                        <li class="list-inline-item date">27 May, 2017</li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
+                                    <a href="#"><span><i class="fa fa-reply"></i></span> Reply</a>
+                                </div><!-- end user-text -->
+                            </div><!-- end comment-block -->
+
+                            <div class="comment-block">
+                                <div class="user-img">
+                                    <img src="~/customerassets/images/commenter-4.jpg" class="img-fluid" alt="user-img" />
+                                </div><!-- end user-img -->
+
+                                <div class="user-text">
+                                    <ul class="list-inline list-unstyled">
+                                        <li class="list-inline-item user-name">Jhon Smith</li>
+                                        <li class="list-inline-item date">27 May, 2017</li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
+                                    <a href="#"><span><i class="fa fa-reply"></i></span> Reply</a>
+                                </div><!-- end user-text -->
+                            </div><!-- end comment-block -->
+
+                        </div><!-- end comments -->
+
+                        <div id="comment-form">
+                            <div class="innerpage-heading">
+                                <h1>Add Comment</h1>
+                            </div><!-- end innerpage-heading -->
+
+                            <form>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input input-lg" placeholder="Your Name" required />
+                                        </div>
+                                    </div><!-- end columns -->
+
+                                    <div class="col-12 col-md-6 col-lg-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control input input-lg" placeholder="Your Email" required />
+                                        </div>
+                                    </div><!-- end columns -->
+                                </div><!-- end row -->
+
+                                <div class="form-group">
+                                    <textarea class="form-control input-lg" rows="5" placeholder="Your Message"></textarea>
+                                </div>
+
+                                <button class="btn btn-orange">Submit</button>
+                            </form>
+                        </div><!-- end comment-form -->
+
+                    </div><!-- end space-right -->
+                </div><!-- end columns -->
+
+                <div class="col-12 col-md-12 col-lg-3 col-xl-3 side-bar blog-sidebar right-side-bar">
+                    <div class="row">
+
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block main-block ad-block">
+                                <div class="main-img ad-img">
+                                    <a href="#">
+                                        <img src="~/customerassets/images/car-ad.jpg" class="img-fluid" alt="car-ad" />
+                                        <div class="ad-mask">
+                                            <div class="ad-text">
+                                                <span>Luxury</span>
+                                                <h2>Car</h2>
+                                                <span>Offer</span>
+                                            </div><!-- end ad-text -->
+                                        </div><!-- end columns -->
+                                    </a>
+                                </div><!-- end ad-img -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+						
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block instagram">
+                                <h2 class="side-bar-heading">Instagram</h2>
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-1.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-2.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-3.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-4.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-5.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-6.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-7.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-8.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                    <li class="list-inline-item"><a href="#"><img src="~/customerassets/images/sidebar-insta-9.jpg" class="img-fluid" alt="insta-img" /></a></li>
+                                </ul>
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+                    </div><!-- end row -->
+
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block contact">
+                                <h2 class="side-bar-heading">Contact Us</h2>
+                                <div class="c-list">
+                                    <div class="icon"><span><i class="fa fa-envelope"></i></span></div>
+                                    <div class="text"><p>support@star-hotel.com</p></div>
+                                </div><!-- end c-list -->
+
+                                <div class="c-list">
+                                    <div class="icon"><span><i class="fa fa-phone"></i></span></div>
+                                    <div class="text"><p>+222 – 5548 656</p></div>
+                                </div><!-- end c-list -->
+
+                                <div class="c-list">
+                                    <div class="icon"><span><i class="fa fa-map-marker"></i></span></div>
+                                    <div class="text"><p>Street No: 1017 Le Van Luong, Phuoc Kien, Nha Be, HCM</p></div>
+                                </div><!-- end c-list -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                        
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block recent-post">
+                                <h2 class="side-bar-heading">Recent Post</h2>
+                               
+                                @if (RecentPost != null && RecentPost.Count() > 0)
+                                {
+                                    foreach (var item in RecentPost)
+                                    {
+                                        string _url = $"/blogs-detail/{item.Alias}-{item.PostId}.html";
+                                        <div class="recent-block">
+                                            <div class="recent-img">
+                                                <a href="@_url"><img src="~/customerassets/images/recent-post-1.jpg" class="img-reponsive" alt="@item.Title" /></a>
+                                            </div><!-- end recent-img -->
+
+                                            <div class="recent-text">
+                                                <a href="@_url"><h5>@item.Title</h5></a>
+                                                <span class="date">@item.CreatedDate</span>
+                                            </div><!-- end recent-text -->
+                                        </div><!-- end recent-block -->
+   
+                                    }
+                                }
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+                    </div><!-- end row -->
+
+                    <div class="row">
+
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block follow-us">
+                                <h2 class="side-bar-heading">Follow Us</h2>
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item"><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
+                                    <li class="list-inline-item"><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
+                                    <li class="list-inline-item"><a href="#"><span><i class="fa fa-linkedin"></i></span></a></li>
+                                    <li class="list-inline-item"><a href="#"><span><i class="fa fa-google-plus"></i></span></a></li>
+                                    <li class="list-inline-item"><a href="#"><span><i class="fa fa-pinterest-p"></i></span></a></li>
+                                </ul>
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="side-bar-block tags">
+                                <h2 class="side-bar-heading">Tags</h2>
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">SPA</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Restaurant</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Searvices</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Wifi</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Tv</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Rooms</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Pools</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Work</a></li>
+                                    <li class="list-inline-item"><a href="#" class="btn btn-g-border">Sports</a></li>
+                                </ul>
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                    </div><!-- end row -->
+                </div><!-- end columns -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end blog-postings -->
+</section><!-- end innerpage-wrapper -->
+<!--======================= BEST FEATURES =====================-->
+<section id="best-features" class="banner-padding black-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="b-feature-block">
+                    <span><i class="fa fa-dollar"></i></span>
+                    <h3>Best Price Guarantee</h3>
+                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
+                </div><!-- end b-feature-block -->
+            </div><!-- end columns -->
+
+            <div class="col-md-6 col-lg-3">
+                <div class="b-feature-block">
+                    <span><i class="fa fa-lock"></i></span>
+                    <h3>Safe and Secure</h3>
+                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
+                </div><!-- end b-feature-block -->
+            </div><!-- end columns -->
+
+            <div class="col-md-6 col-lg-3">
+                <div class="b-feature-block">
+                    <span><i class="fa fa-thumbs-up"></i></span>
+                    <h3>Best Travel Agents</h3>
+                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
+                </div><!-- end b-feature-block -->
+            </div><!-- end columns -->
+
+            <div class="col-md-6 col-lg-3">
+                <div class="b-feature-block">
+                    <span><i class="fa fa-bars"></i></span>
+                    <h3>Travel Guidelines</h3>
+                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
+                </div><!-- end b-feature-block -->
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end best-features -->

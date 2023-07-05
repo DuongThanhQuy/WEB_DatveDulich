@@ -1,0 +1,72 @@
+﻿@model List<DboFlight>
+@if (Model != null)
+{
+	foreach (var item in Model)
+	{
+		<tr>
+
+			<td>
+				<div class="room-list-bx d-flex align-items-center">
+					<img class="me-3 rounded" src="images/room/room4.jpg" alt="">
+					<div>
+						<span class=" text-secondary fs-14 d-block">@item.FlightId</span>
+						<span class=" fs-16 font-w500 text-nowrap">@item.FlightName</span>
+					</div>
+				</div>
+			</td>
+			<td class="">
+				<span class="fs-16 font-w500">@item.CatFlight.CatFlightName</span>
+			</td>
+			<td class="">
+				<span class="fs-16 font-w500">@item.ShortDesc</span>
+			</td>
+			<td class="">
+				<span class="fs-16 font-w500">@item.From</span>
+			</td>
+			<td class="">
+				<span class="fs-16 font-w500">@item.To</span>
+			</td>
+			<td class="">
+				<span class="fs-16 font-w500">@item.TotalTime</span>
+			</td>
+			<td class="">
+				<span class="fs-16 font-w500">@item.Seats</span>
+			</td>
+			<td>
+				<div class="">
+
+					<span class="font-w500">@item.Price<small class="fs-14 ms-2">/night</small></span>
+				</div>
+			</td>
+
+
+			<td>
+				@if (item.Seats > 0)
+				{
+					<div class="request">
+						<a href="javascript:void(0);" class="btn btn-md text-primary">Active</a>
+					</div>
+				}
+				else
+				{
+					<div class="request">
+						<a href="javascript:void(0);" class="btn btn-md text-primary">Booked</a>
+					</div>
+				}
+			</td>
+
+			<td class="py-2 text-end">
+				<div class="dropdown text-sans-serif">
+					<button class="btn btn-primary tp-btn-light sharp" type="button" id="order-dropdown-0" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
+					<div class="dropdown-menu dropdown-menu-end border py-0" aria-labelledby="order-dropdown-0">
+
+						<a type="button" class="dropdown-item far fa-eye" asp-area="Admin" asp-controller="AdminDboFlights" asp-action="Details" asp-route-id="@item.FlightId"> View</a>
+						<a type="button" class="dropdown-item fas fa-edit" asp-area="Admin" asp-controller="AdminDboFlights" asp-action="Edit" asp-route-id="@item.FlightId"> Edit</a>
+						<a type="button" class="dropdown-item text-danger far fa-trash-alt" asp-area="Admin" asp-controller="AdminDboFlights" asp-action="Delete" asp-route-id="@item.FlightId"> Delete</a>
+					</div>
+				</div>
+			</td>
+		</tr>
+	}
+
+}

@@ -1,0 +1,151 @@
+﻿
+@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<TravelFinalProject.Models.DboPage>
+@{
+	int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Admin Pages Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!--**********************************
+			Content body start
+		***********************************-->
+<!-- row -->
+<div class="container-fluid">
+	<div class="d-flex justify-content-between align-items-center flex-wrap">
+		<div class="card-action coin-tabs mb-3">
+
+			<ul class="nav nav-tabs" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" asp-area="Admin" asp-controler="Home" asp-action="Index">All Page: page @ViewBag.CurrentPage</a>
+				</li>
+
+			</ul>
+
+		</div>
+		<div class="d-flex align-items-center mb-2 flex-wrap">
+			
+			<div class="js-example-theme-single newest ms-3">
+				<a class="btn btn-secondary" asp-controller="AdminDboPages" asp-action="Create"><span>+ New Page</span></a>
+			</div>
+		</div>
+
+	</div>
+	<div class="row mt-4">
+		<div class="col-xl-12">
+			<div class="card">
+				<div class="card-body p-0">
+					<div class="tab-content">
+						<div class="tab-pane active show" id="AllGuest">
+							<div class="table-responsive">
+								<table class="table card-table display mb-4 shadow-hover default-table table-responsive-lg" id="guestTable-all">
+									<thead>
+										<tr>
+											<th>Page</th>
+											<th>Contents</th>
+											<th>Title</th>
+											<th>Create Date</th>
+								
+											<th class="text-center">Status</th>
+											<th class="bg-none"></th>
+										</tr>
+									</thead>
+									<tbody>
+										@if (Model != null)
+										{
+											foreach (var item in Model)
+											{
+												string url = $"/{item.Alias}";
+												<tr>
+
+													<td>
+														<div class="concierge-bx d-flex align-items-center">
+															<img class="me-3 rounded" src="images/avatar/1.jpg" alt="">
+															<div>
+																<h5 class="fs-16 mb-0"><a class="text-black" href="@url">@item.PageName</a></h5>
+																<span class="text-primary fs-14">@item.PageId</span>
+															</div>
+														</div>
+													</td>
+													<td>
+														<div>
+															<span class="font-w600"><i class="fas fa-file-alt me-2 "></i>@item.Contents</span>
+														</div>
+													</td>
+													<td>
+														<div>
+															<span class="font-w600"><i class="fas fa-check me-2 "></i>@item.Title</span>
+														</div>
+													</td>
+				
+													<td>
+														<div>
+															<h5 class="font-w300">@item.CreateDate</h5>
+														</div>
+													</td>
+													
+													<td>
+														@if(item.Published == true)
+														{
+															<div class="request">
+																<a href="javascript:void(0);" class="btn btn-md text-primary">Published</a>
+															</div>
+														}
+														else
+														{
+															<div class="request">
+																<a href="javascript:void(0);" class="btn btn-md text-primary">Removed</a>
+															</div>
+														}
+														
+													</td>
+													
+													<td class="py-2 text-end">
+														<div class="dropdown text-sans-serif">
+															<button class="btn btn-primary tp-btn-light sharp" type="button" id="order-dropdown-0" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
+															<div class="dropdown-menu dropdown-menu-end border py-0" aria-labelledby="order-dropdown-0">
+
+																<a type="button" class="dropdown-item far fa-eye" asp-area="Admin" asp-controller="AdminDboPages" asp-action="Details" asp-route-id="@item.PageId"> View</a>
+																<a type="button" class="dropdown-item fas fa-edit" asp-area="Admin" asp-controller="AdminDboPages" asp-action="Edit" asp-route-id="@item.PageId"> Edit</a>
+																<a type="button" class="dropdown-item text-danger far fa-trash-alt" asp-area="Admin" asp-controller="AdminDboPages" asp-action="Delete" asp-route-id="@item.PageId"> Delete</a>
+															</div>
+														</div>
+													</td>
+												</tr>
+											}
+										}
+
+									</tbody>
+								</table>
+
+								<div aria-label="Page navigation example">
+
+									<ul class="pagination pagination-gutter pagination-primary no-bg">
+										<li class="page-item page-indicator">
+											<a class="page-link" href="javascript:void(0)">
+												<i class="la la-angle-left"></i>
+											</a>
+										</li>
+										<li class="pager-item page-indicator">
+											<pager href="javascript:void(0)" list="@Model" asp-area="Admin" asp-controller="AdminDboPages" asp-action="Index" />
+										</li>
+										<li class="page-item page-indicator">
+											<a class="page-link" href="javascript:void(0)">
+												<i class="la la-angle-right"></i>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<!--**********************************
+	Content body end
+***********************************-->
